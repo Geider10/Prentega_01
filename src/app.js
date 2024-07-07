@@ -1,8 +1,11 @@
 const express = require("express")
+const productsRouter = require("./routes/products.router")
+
 const app = express()
+const PORT = 8080
 
-app.get("/api/products",(req,res)=>{
-    res.send("Funciona todo great")
-})
+app.use(express.json())
+app.use(express.urlencoded({extended : true}))//recibir parametros por url
 
-app.listen(8080,()=>console.log("escuchando el puerto 8080"))
+app.use("/",productsRouter)
+app.listen(PORT,()=>console.log("escuchando el puerto 8080"))
