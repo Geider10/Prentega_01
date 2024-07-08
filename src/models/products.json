@@ -1,0 +1,22 @@
+[
+  {
+    "id": 2,
+    "name": "camera",
+    "price": 200000
+  },
+  {
+    "id": 3,
+    "name": "tarjeta grafica",
+    "price": 340000
+  },
+  {
+    "id": 5,
+    "name": "phone",
+    "price": 200000
+  },
+  {
+    "id": 6,
+    "name": "mousepad",
+    "price": 10000
+  }
+]
