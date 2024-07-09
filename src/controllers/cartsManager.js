@@ -20,17 +20,40 @@ class CartsManager{
     }
     addProductCart(cartId,productId){
         const carts = fs.loadProducts()
-        const cart = this.getCartProducts(cartId)
+        const cart = carts.find(c => c.id == cartId)
         if(cart){
-            const productJson = pm.getProductById(productId)
-            const cartsFilter = carts.filter(c => c.id !== cartId)
-            const newProducts = [ ...cartsFilter,{id: cartId,products: [{id:productJson.id, quantity: 1}]}]
-            return newProducts
-            // cart.products.push(newProduct)
-            // fs.saveProducts(carts)
+            const productsFilter = cart.products.some(p => p.id == productId)//true/false
+
+            if(productsFilter){
+                const c = cart.products.map(p => {
+                    if(p.id == productId){
+                        const pro = {id : p.id, quantity: p.quantity+1}
+                        return {...p, ...pro}//first old object, after new object, replace
+                    }
+                    return p
+                })
+                const cartsFilter = carts.filter(c => c.id !== cartId)
+                const p = [...cartsFilter,{id: cartId, products : c}]
+                fs.saveProducts(p)
+                return p
+            }
+            else{
+                const productJson = pm.getProductById(productId)
+                if(productJson){
+                    const cartsFilter = carts.filter(c => c.id !== cartId)
+                    cart.products.push({id:productJson.id, quantity: 1})//add new product at cart1
+                    //create new array carts and add new cart1
+                    const newProducts = [ ...cartsFilter,{id: cartId,products: cart.products }]
+                    fs.saveProducts(newProducts)
+                    return newProducts
+                }
+                else{
+                    return {error : "there is no product"}
+                }
+            }
         }
         else{
-            return {error : "not such carrito"}
+            return {error : "there is no cart"}
         }
     }
 }
