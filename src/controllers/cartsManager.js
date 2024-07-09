@@ -7,6 +7,10 @@ class CartsManager{
     constructor(){
         this.contId = 0
     }
+    getCarts(){
+        const carts = fs.loadProducts()
+        return carts
+    }
     addCart(cart){
         const carts = fs.loadProducts()
         const id = this.contId++
@@ -22,7 +26,7 @@ class CartsManager{
         const carts = fs.loadProducts()
         const cart = carts.find(c => c.id == cartId)
         if(cart){
-            const productsFilter = cart.products.some(p => p.id == productId)//true/false
+            const productsFilter = cart.products.some(p => p.id == productId)
 
             if(productsFilter){
                 const c = cart.products.map(p => {
