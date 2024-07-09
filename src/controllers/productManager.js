@@ -1,4 +1,4 @@
-const { link } = require("../routes/products.router")
+// const { link } = require("../routes/products.routes")
 const FsManager = require("./fsManager")
 const filePath = "./src/models/products.json"//path donde esta el json
 const fs = new FsManager(filePath)
