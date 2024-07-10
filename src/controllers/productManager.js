@@ -6,9 +6,15 @@ class ProductManager {
     constructor(){
         this.contId = 0
     }
-    getProducts(){
+    getProducts(limit){
         const products = fs.loadProducts()
-        return products
+        if(!isNaN(limit) && limit > 0){
+            const p = products.slice(0,limit)
+            return p
+        }
+        else{
+            return products
+        }
     }
     getProductById(id){
         const products = fs.loadProducts()

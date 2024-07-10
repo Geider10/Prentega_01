@@ -10,7 +10,8 @@ const products = [
 ]
 
 router.get("/api/products",(req,res)=>{
-    res.json(pm.getProducts())
+    const limit = parseInt(req.query.limit)
+    res.json(pm.getProducts(limit))
 })
 router.get("/api/products/:id",(req,res)=>{
     const id = parseInt(req.params.id)

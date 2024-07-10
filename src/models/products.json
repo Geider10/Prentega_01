@@ -1,22 +1,52 @@
 [
   {
-    "id": 2,
+    "id": 1,
     "name": "camera",
-    "price": 200000
+    "description": "",
+    "code": "0001",
+    "price": 120000,
+    "status": true,
+    "stock": 10,
+    "category": "computación"
+  },
+  {
+    "id": 2,
+    "name": "mouse",
+    "description": "",
+    "code": "0002",
+    "price": 20000,
+    "status": true,
+    "stock": 10,
+    "category": "computación"
   },
   {
     "id": 3,
-    "name": "tarjeta grafica",
-    "price": 340000
+    "name": "jeans",
+    "description": "",
+    "code": "0003",
+    "price": 30000,
+    "status": true,
+    "stock": 10,
+    "category": "indumentaria"
   },
   {
-    "id": 5,
-    "name": "phone",
-    "price": 200000
+    "id": 4,
+    "name": "camisa",
+    "description": "",
+    "code": "0004",
+    "price": 70000,
+    "status": true,
+    "stock": 10,
+    "category": "indumentaria"
   },
   {
-    "id": 6,
-    "name": "mousepad",
-    "price": 10000
+    "id": 0,
+    "name": "bicicleta",
+    "description": "",
+    "code": "0005",
+    "price": 200000,
+    "status": true,
+    "stock": 10,
+    "category": "jugetes"
   }
 ]
